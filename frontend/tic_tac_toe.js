@@ -3,9 +3,6 @@ function render({ model, el }) {
     let gameBoard = document.createElement("div");
     gameBoard.classList.add("game-board");
     el.appendChild(gameBoard);
-    
-    let debug = document.createElement("p");
-    el.appendChild(debug);
 
     const win = [
         [0, 1, 2],

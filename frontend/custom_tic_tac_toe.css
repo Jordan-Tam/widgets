@@ -1,0 +1,17 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.game-board {
+    display: inline-grid;
+    gap: 1px;
+    /* grid-template-columns: repeat(3, 1fr); */
+}
+
+.square {
+    height: 50px;
+    width: 50px;
+    font-size: 20px;
+}
