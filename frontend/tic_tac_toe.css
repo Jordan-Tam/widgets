@@ -15,3 +15,8 @@
     width: 50px;
     font-size: 20px;
 }
+
+.reset {
+  display: block;
+  margin-top: 5px;
+}

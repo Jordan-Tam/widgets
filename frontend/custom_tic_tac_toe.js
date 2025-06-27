@@ -55,7 +55,7 @@ function render({ model, el }) {
     let win = compute_wins(board_height, board_width, in_a_row);
     let squares = [];
     let turn = 0;
-    let player_symbols = ["X", "O"]; // use turn to index into this list
+    let player_symbols = ["X", "O", "◼", "▲"]; // use turn to index into this list
 
     let move = (event) => {
         if (event.target.innerHTML) {
@@ -82,16 +82,18 @@ function render({ model, el }) {
             }
 
             // Change styling of the winning squares and end the game.
+            for (let j = 0; j < squares.length; j++) {
+                squares[j].style.color = "rgba(16, 16, 16, 0.3)";
+                squares[j].disabled = true;
+            }
             for (let j = 0; j < win[i].length; j++) {
                 squares[win[i][j]].style.color = "red";
-            }
-            for (let j = 0; j < squares.length; j++) {
-                squares[j].disabled = true;
             }
 
         }
         if (squares.filter((s) => s.innerHTML).length === board_height*board_width) {
             for (let j = 0; j < squares.length; j++) {
+                squares[j].style.color = "rgba(16, 16, 16, 0.3)";
                 squares[j].disabled = true;
             }
         }

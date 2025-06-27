@@ -26,17 +26,20 @@ function render({ model, el }) {
                 squares[win[i][0]].innerHTML === squares[win[i][1]].innerHTML &&
                 squares[win[i][0]].innerHTML === squares[win[i][2]].innerHTML
             ) {
-                squares[win[i][0]].style.color = "red";
-                squares[win[i][1]].style.color = "red";
-                squares[win[i][2]].style.color = "red";
-                for (let i = 0; i < squares.length; i++) {
-                    squares[i].disabled = true;
+
+                for (let j = 0; j < squares.length; j++) {
+                    squares[j].style.color = "rgba(16, 16, 16, 0.3)";
+                    squares[j].disabled = true;
+                }
+                for (let j = 0; j < win[i].length; j++) {
+                    squares[win[i][j]].style.color = "red";
                 }
                 break;
             }
         }
         if (squares.filter((s) => s.innerHTML).length === 9) {
             for (let i = 0; i < squares.length; i++) {
+                squares[i].style.color = "rgba(16, 16, 16, 0.3)";
                 squares[i].disabled = true;
             }
         }
@@ -65,6 +68,7 @@ function render({ model, el }) {
 
     let resetButton = document.createElement("button");
     resetButton.innerHTML = "Reset";
+    resetButton.classList.add("reset");
     resetButton.addEventListener("click", reset);
     el.appendChild(resetButton);
 
