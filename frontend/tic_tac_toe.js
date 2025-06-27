@@ -1,9 +1,5 @@
 function render({ model, el }) {
 
-    let gameBoard = document.createElement("div");
-    gameBoard.classList.add("game-board");
-    el.appendChild(gameBoard);
-
     const win = [
         [0, 1, 2],
         [3, 4, 5],
@@ -16,14 +12,12 @@ function render({ model, el }) {
     ];
     let squares = [];
     let turn = 0;
-    let p1_symbol = "X";
-    let p2_symbol = "O";
 
     let move = (event) => {
         if (event.target.innerHTML) {
             return;
         }
-        event.target.innerHTML = turn ? p2_symbol : p1_symbol;
+        event.target.innerHTML = turn ? "O" : "X";
         turn = !turn;
         for (let i = 0; i < win.length; i++) {
             if (squares[win[i][0]].innerHTML &&
@@ -47,6 +41,10 @@ function render({ model, el }) {
             }
         }
     };
+
+    let gameBoard = document.createElement("div");
+    gameBoard.classList.add("game-board");
+    el.appendChild(gameBoard);
 
     for (let i = 0; i < 9; i++) {
         let button = document.createElement("button");

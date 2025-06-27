@@ -7,11 +7,16 @@
 .game-board {
     display: inline-grid;
     gap: 1px;
-    /* grid-template-columns: repeat(3, 1fr); */
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .square {
     height: 50px;
     width: 50px;
     font-size: 20px;
+}
+
+.reset {
+  display: block;
+  margin-top: 5px;
 }
