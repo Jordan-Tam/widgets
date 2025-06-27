@@ -35,7 +35,7 @@ function render({ model, el }) {
                 }
 
                 // Down-up diagonal win condition (/)
-                if (!((j-1) - num < 0) && !((i-1) + num > height)) {
+                if (!(j - num < 0) && !((i-1) + num > height)) {
                     wins.push(range(j + width*(i-1), width-1, num).map(x => x - 1));
                 }
 
@@ -112,7 +112,12 @@ function render({ model, el }) {
     el.appendChild(debug);
 
     let reset = () => {
-        turn = 0;
+        for (let i = 0; i < squares.length; i++) {
+            squares[i].disabled = false;
+            squares[i].innerHTML = "";
+            squares[i].style.color = "black";
+            turn = 0;
+        }
     };
 
     let resetButton = document.createElement("button");
